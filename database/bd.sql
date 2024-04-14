@@ -47,4 +47,8 @@ CREATE TABLE
         CONSTRAINT fk_usuario_estado_usuario FOREIGN KEY(estado_us_id) REFERENCES estado_usuario(id_estado_us)
     ) ENGINE = InnoDb;
 
+INSERT INTO usuario (id_us, nombre_us, apellido_us, edad_us, ci_us, telefono, email_us, contrasena_us, tipo_us_id, estado_us_id, avatar, creado_en, actualizado_en) VALUES
+(1, 'Manuel Armando', 'Santamaria Chico', '1997-09-20', '99999', '952681419', '1', '$2y$04$iKl.OQVFX3Kef.ZLkRvDYeNgdg7cKh7hhjeSRKWNahR37QnYq09U2', 1, 1, 'imgavatar.png', '2024-03-31 00:32:36', NULL);
+
+
 
