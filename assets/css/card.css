@@ -4,22 +4,22 @@
     suficiente espacio horizontal en la línea actual */
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   
   
   .card {
     position: relative;
-    width: 30%; /* Utilizando porcentajes para adaptarse al ancho de la pantalla */
-    height: auto; /* Altura automática */
-    margin-top: 20px;
-    margin-left: 2%; /* Ajustando el margen izquierdo */
+    width: calc(50% - 20px); /* Calcula el 50% del ancho menos el margen entre las tarjetas */
+    max-width: 300px; /* Establece el ancho máximo de la tarjeta */
+    margin: 10px; /* Margen entre las tarjetas */
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 10px;
-    align-items: center;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho de la tarjeta */
     word-wrap: break-word;
   }
+
   
   .contenedor-card .card-body img{
     display: block; /* Cambia a bloque para centrar horizontalmente */
@@ -42,3 +42,16 @@
     margin-top: 5px;
   }
   
+
+
+  @media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Cambia el ancho a 50% en pantallas más pequeñas */
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .card {
+        width: calc(100% - 20px); /* Cambia el ancho a 100% en pantallas aún más pequeñas */
+    }
+  }
