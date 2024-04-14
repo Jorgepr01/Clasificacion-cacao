@@ -1,6 +1,8 @@
 //modelo :) tm
 const URL = 'https://teachablemachine.withgoogle.com/models/A3dOiWWUw/';
-let model, webcam, labelContainer, maxPredictions,img,previewImg;
+let model, webcam, labelContainer, maxPredictions,img,previewImg,stopLoop,imagennn;
+let classMaster = null
+
 //description html
 const descrition = {
     "pod_borer": "Esta es la descripción de la primera imagen. pod_borer",
@@ -8,12 +10,12 @@ const descrition = {
     "black_pod_rot": "Esta es la descripción de la tercera imagen. black_pod_rot"
 }
 
-document.getElementById('avatar').addEventListener('change',ModelFile) //leer el file
+// document.getElementById('avatar').addEventListener('change',ModelFile) //leer el file
 document.getElementById('avatars').addEventListener('change',ModelFile) //leer el file
 
 // Caundo presiono el abri web can en html boton me hace que funcione esta funcion
 async function init() {
-
+    stopLoop = false;
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
@@ -30,11 +32,11 @@ async function init() {
     await webcam.setup(); // request access to the webcam
     await webcam.play();
     window.requestAnimationFrame(loop);
-    document.getElementById("MenuFile").style.display = "none";
     document.getElementById("preview-image").style.display = "none";
-    document.getElementById("Presentation").style.display = "flex";
     // append elements to the DOM
-    document.getElementById("webcam-container").appendChild(webcam.canvas);
+    camara=document.getElementById("webcam-container")
+    camara.appendChild(webcam.canvas);
+    camara.style.display = "flex";
     labelContainer = document.getElementById("label-container");
     for (let i = 0; i < maxPredictions; i++) { // and class labels
         labelContainer.appendChild(document.createElement("div"));
@@ -44,13 +46,19 @@ async function init() {
 async function loop() {
     webcam.update(); // update the webcam frame
     await predict(webcam.canvas);
-    window.requestAnimationFrame(loop);
+    if (!stopLoop){
+        window.requestAnimationFrame(loop);
+    }
 }
 async function ModelFile(){
+    stopLoop = true; 
+    try {
+        webcam.stop()
+      } catch (error) {
+        console.log(error);
+      };
     imagennn=document.getElementById('preview-image')
-    document.getElementById("MenuFile").style.display = "none";
     document.getElementById("webcam-container").style.display = "none";
-    document.getElementById("Presentation").style.display = "flex";
     var file = this.files[0];
     if (file) {
         var reader = new FileReader();
@@ -79,7 +87,6 @@ async function predict(imgagess) {
 
    // predict can take in an image, video or canvas html element
     const prediction = await model.predict(imgagess);
-    let classMaster = null
     let probabilityMax =0
     for (let i = 0; i < maxPredictions; i++) {
         clase=prediction[i].className
@@ -91,7 +98,26 @@ async function predict(imgagess) {
         const classPrediction = clase + ": " + probabilidad.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
     }
-    
+
     var descripcionElemento = document.getElementById("descripcionImagen");
     descripcionElemento.innerHTML = descrition[classMaster];
+
+}
+
+function enviar(){
+    var formDataI = new FormData();
+    formData.append("imagen", imagennn);
+    
+    var datos={
+        imag:formDataI,
+        clase:classMaster
+    }
+    $.ajax({
+        type: "POST",
+        data:datos,
+        url: 'hay va el php creo :)',
+        success:function(data){
+            console.log(data);
+        }
+    })
 }
