@@ -25,11 +25,11 @@ class conexion{
 
 
 // Crear un objeto de la clase 'conexion'
-$miConexion = new conexion();
+// $miConexion = new conexion();
 
-// Verificar si la conexión se ha establecido correctamente
-if ($miConexion->pdo) {
-    echo "Conexión exitosa a la base de datos.";
-} else {
-    echo "Error al conectar a la base de datos.";
-}
+// // Verificar si la conexión se ha establecido correctamente
+// if ($miConexion->pdo) {
+//     echo "Conexión exitosa a la base de datos.";
+// } else {
+//     echo "Error al conectar a la base de datos.";
+// }
