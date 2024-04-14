@@ -1,0 +1,26 @@
+/* card de eje*/
+  .card-eje {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+    /* margin-left: 10px; */
+    border: 1px solid #ddd; /* Grosor y color del borde */
+    border-radius: 6px; /* Redondear las esquinas */
+    align-items: center;
+    text-align: center;
+    
+  }
+
+  .card-eje .card-body img{
+    display: block; /* Cambia a bloque para centrar horizontalmente */
+    margin: auto; /* Centrar horizontalmente */
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+    width: 130px;
+    border-radius: 50%;
+  }
+
+
+  
+  
+  
