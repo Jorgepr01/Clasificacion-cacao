@@ -1,0 +1,8 @@
+    
+/* Estilos para pantallas entre 768px y 1024px */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Aquí puedes definir los estilos que deseas aplicar a elementos cuando la pantalla está entre 768px y 1024px */
+    #ContDeteccion{
+        display: flex;
+    }
+  }

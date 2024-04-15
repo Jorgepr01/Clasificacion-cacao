@@ -7,14 +7,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="./style.css">
+
 
 </head>
 <body>
 <div class="flex flex-col gap-2 md:gap-4 xl:gap-6" id="Presentation">
-  <div class="grid md:grid-cols-2 items-start gap-4 xl:gap-8">
-    <div id="webcam-container" class="w-55 object-cover rounded-lg overflow-hidden border dark:border-gray-800" style=" margin:auto; object-fit: cover; display:none" ></div>
+  <div class="grid md:grid-cols-2 items-start gap-4 xl:gap-8" id="ContDeteccion">
+    <div id="webcam-container" class="w-75 object-cover rounded-lg overflow-hidden border dark:border-gray-800" style=" margin:auto; object-fit: cover; display:none" ></div>
     <img
       alt="Image"
       class="w-70 object-cover rounded-lg overflow-hidden border dark:border-gray-800"
@@ -32,19 +34,24 @@
       </p>
       <div id="label-container"></div>
       <div id="descripcionImagen"></div>
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="large_size">Ingrese otro imagen</label>
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black" for="large_size">Ingrese imagen</label>
         <input type="file" id="avatars" accept="image/*" class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file">
 
 
         <button type="button" onclick="init()" class="inline-flex items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:text-indigo-400" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 mr-2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 mr-2 justify-center"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
             Camara
           <button/>
 
+
+
       <!-- <input type="file" id="avatar" accept="image/*" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" >  -->
-      <button onclick="enviar()" class="inline-flex items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:text-indigo-400 verEstadistica" >
-        Ver estadisticas
+      <button onclick="enviar()" class="inline-flex items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:text-indigo-400" id="enviarData">
+        enviarData
       <button/>
+
+    
+
     </div>
   </div>
 </div>
