@@ -88,5 +88,4 @@
 <link href="..\..\assets\css\card.css" rel="stylesheet">
 <link href="..\..\assets\css\modal.css" rel="stylesheet">
 <link href="..\..\assets\css\perfil.css" rel="stylesheet">
-<link href="..\..\assets\css\eje.css" rel="stylesheet">
 <!-- ================== FIN CSS PROPIOS ================== -->

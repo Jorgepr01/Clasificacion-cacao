@@ -62,18 +62,7 @@
                             </label>
                             <input id="telefono" type="number" class="form-control" name="telefono" placeholder="Ingrese Numero de Telefono" required>
                         </div>
-                       
-                        <select class="form-control selectpicker" id="select-instituciones" data-size="10" data-live-search="true">
-                            
-                            
-                        </select>
-                        <div class="stylo-alerta-rechazo" id="select-inst" style='display:none;'>
-                            <span><i class="fas fa-times m-1"></i>Selecione una Institucion</span>
-                        </div>
-
-                       
                         
-                        <br><br>
                         <div class="form-group">
                             <label for="correo">
                                 <span><i class="fas fa-at"></i> CORREO</span>
@@ -92,7 +81,9 @@
                         </div>
                         
                         <select class="form-control" id="select-tipo">  
-
+                            <option value="" selected="">Tipo de Usuario</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Usuario</option>
                         </select> 
                         <div class="stylo-alerta-rechazo" id="tipo-usuario" style='display:none;'>
                             <span><i class="fas fa-times m-1"></i>Seleccione Tipo de usuario</span>

@@ -1,9 +1,16 @@
+<?php
+// session_name("mesa-tecnica");
+// //inciar sesiones 
+// session_start();
+// //para destruir session
+// if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) { 
+?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
 
-    <title>Home | Administracion Usuario</title>
+    <title>Home | Dashboard</title>
     <?php include_once("../Layouts/Head.php"); ?>
 
 </head>
@@ -26,43 +33,30 @@
 
             <!-- begin breadcrumb -->
             <ol class="breadcrumb float-xl-right">
-                <li class="breadcrumb-item"><a href="../../controllers/login.php">Home</a></li>
-                <li class="breadcrumb-item"><a href="./index.php">Administracion Usuario</a></li>
+                <li class="breadcrumb-item"><a href="./admin_catalogo.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="./admin_catalogo.php">Home</a></li>
             </ol>
             <!-- end breadcrumb -->
 
 
             <!-- begin page-header -->
-            <h1 class="page-header">Administracion Usuario <small>Registrar, Modificar, Habilitar, Deshabilitar</small></h1>
+            <h1 class="page-header">Home <small>Inicio</small></h1>
             <!-- end page-header -->
 
 
             <!-- begin panel -->
             <div class="panel panel-inverse">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Administracion Usuario</h4>
+                    <h4 class="panel-title">Home</h4>
                     <div class="panel-heading-btn">
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" id="reloadButton" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                        <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a> -->
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a> -->
                     </div>
                 </div>
                 <div class="panel-body">
-                    <!-- CREAR PRODUCTO -->
-                    <button type="button" id="btnnuevo" class="btn btn-primary"><i class="fas fa-plus"></i> Usuario</button>
-                    <br><br>
-                    <!--buscar -->
-                    <div class="ds-buscar">
-                        <label for="buscar">
-                            <span><i class="fas fa-search"></i> BUSCAR</span>
-                        </label>
-                        <input type="text" class="form-control" id="buscar" placeholder="Buscar por nombre o apellido" required>
-                    </div>
-
-                    <div class="contenedor-card usuarios-card">
-
-                    </div>
+                    <h1>ADMINISTRADOR</h1>
                 </div>
             </div>
         </div>
@@ -78,11 +72,17 @@
     </div>
     <!-- end page container -->
 
-    <?php require_once("mnt.php") ?>
+    
 
     <?php include_once("../Layouts/modal.php"); ?>
     <?php include_once("../Layouts/Js.php"); ?>
-    <script type="text/javascript" src="./admin_usuario.js"></script>
+    <script type="text/javascript" src="./catalogo.js"></script>
 </body>
 
 </html>
+<?php
+// } else {
+//     header('Location: ../../controllers/login.php');
+// }
+?>
+

@@ -38,7 +38,7 @@
 					<a href="../Proyecto/index.php">
 						<!-- <b class="caret"></b> -->
 						<i class="fas fa-lg fa-fw m-r-10 fa-bullseye"></i>
-						<span>Proyecto</span>
+						<span>procesamiento de Imágenes</span>
 					</a>
 
 				</li>

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    cargar_usuario();
+  cargar_usuario();
   var funcion;
   function cargar_usuario(consulta) {
     funcion = 'buscar_usuarios';
@@ -7,6 +7,7 @@ $(document).ready(function(){
      consulta,
      funcion
     }, (response) => {
+      // console.log(response);
     const usuarios = JSON.parse(response);
     let template = '';
     usuarios.forEach(usuario => {
@@ -15,11 +16,12 @@ $(document).ready(function(){
           <div class="card-body">
             <h1 style="background-color: #1783db; color: white; font-size: 15px; display: inline-block; border-radius: 5px;">${usuario.nombre_tipo}</h1>
             <img src="../../uploads/avatar/${usuario.avatar}">
-            <h2 style="color: #0b7300; font-size: 20px; display: block; height: 60px; text-align: center;">${usuario.nombres} ${usuario.apellidos}</b></h2>
-              <ul style="text-decoration: none; list-style-type: none;">
+            <h2 style="color: #0b7300; font-size: 20px; display: block; width: 100%; padding: 10px 0; text-align: center; overflow-wrap: break-word;">${usuario.nombres} ${usuario.apellidos}</b></h2>
+              <ul style="text-decoration: none; list-style-type: none; display: block; width: 100%; padding: 10px 0; text-align: center; overflow-wrap: break-word;">
                 <li style="margin-top: 10px;"><span><i class="fas fa-lg fa-id-card" style="color: #6c757d;"></i></span> C.I: ${usuario.ci}</li>
                 <li style="margin-top: 10px;"><span><i class="fas fa-lg fa-at" style="color: #6c757d;"></i></span> Correo: ${usuario.correo}</li>
-                <li style="margin-top: 10px;margin-boot: 10px;"><span><i class="fas fa-building" style="color: #6c757d;"></i></span> Institución: ${usuario.institucion}</li>
+                <li style="margin-top: 10px;"><span><i class="fas fa-phone" style="color: #6c757d;"></i></span> Celular: ${usuario.telefono}</li>
+                
               </ul>
             </div>
             `
@@ -71,62 +73,17 @@ $(document).ready(function(){
     cargar_usuario(consulta);
   });
 
-  // TODO: CREAR USUARIO
+  // TODO: BTN CREAR USUARIO
   $('#btnnuevo').click(function () {
     $('#mnt_form')[0].reset();
     $('#mdltitulo').html('CREAR USUARIO');
     $("#accion").val("crear_usuario");
     $("#inst_cod").prop("readonly", false);
     $('#mdlmnt').modal('show');
-    // TODO: TRAER INSTITUCIONES
-    funcion = "datos_instituciones";
-    $.post("../../controllers/institucion.php", {funcion}, function(response){
-      // Parsear la respuesta JSON del servidor
-      const instituciones = JSON.parse(response);
-  
-      // Inicializar la variable para almacenar el HTML de las opciones de categoría
-      let template = "";
-  
-      // Agregar una opción por defecto
-      template += `<option value="" selected="">Institucion</option>`;
-  
-      // Iterar sobre las categorías recibidas del servidor y construir las opciones de categoría
-      for (let i = 0; i < instituciones.length; i++) {
-          const institucion = instituciones[i];
-          template += `<option value="${institucion.cod_institucion}">${institucion.nombre_institucion}</option>`;
-      }
-  
-      $("#select-instituciones").html(template);
-      // Actualizar SelectPicker
-      $('#select-instituciones').selectpicker('refresh');
-    });
-    // TODO: TRAER TIPOS DE USUARIO
-    funcion = "tipos_usuario";
-    $.post("../../controllers/usuario.php", {funcion}, function(response){
-      // console.log(response);
-      // Parsear la respuesta JSON del servidor
-      const tipos_usuarios = JSON.parse(response);
-  
-      // Inicializar la variable para almacenar el HTML de las opciones de categoría
-      let template = "";
-  
-      // Agregar una opción por defecto
-      template += `<option value="" selected="">Tipo de Usuario</option>`;
-  
-      // Iterar sobre las categorías recibidas del servidor y construir las opciones de categoría
-      for (let i = 1; i < tipos_usuarios.length; i++) {
-          const tipo_usuario = tipos_usuarios[i];
-          template += `<option value="${tipo_usuario.id_tipo_us}">${tipo_usuario.nombre_tipo_us}</option>`;
-      }
-  
-      $("#select-tipo").html(template);
-      // Actualizar SelectPicker
-      $('#select-tipo').selectpicker('refresh');
-    });
   });
 
 
-  //insertar usuario
+  //TODO: INSERTAR USUARIO
   $('#mnt_form').submit(function(e) {
     e.preventDefault();
     let nombre_usuario = $('#nombre-usu').val();
@@ -137,7 +94,6 @@ $(document).ready(function(){
     let correo = $('#correo').val();
     let contrasena = $('#contrasena').val();
     // obtener value option
-    let select_institucion = $('#select-instituciones').val()
     let select_tipo = $('#select-tipo').val()
 
     var accion = $("#accion").val()
@@ -148,7 +104,6 @@ $(document).ready(function(){
       nombre_usuario: nombre_usuario,
       apellido_usuario: apellido_usuario,
       fecha_nacimiento: fecha_nacimiento,
-      select_institucion: select_institucion,
       ci: ci,
       telefono: telefono,
       correo: correo,
@@ -200,30 +155,30 @@ $(document).ready(function(){
     }
   })
 
-  // abrir el modal habiliar
-  $(document).on("click", ".habilitar-usu", function() {
-     // Obtener el div padre más cercano con la clase "card"
-     var cardPadre = $(this).closest('.card');
-     // Obtener el valor del atributo "usuarioId"
-     var id = cardPadre.attr('usuarioId');
-    $('#id_user').val(id);
-    $("#funcion").val("habilitar-usu");
-    $(".titulo-modal").html("HABILITAR USUARIO")
-    $("#modal-confirmar").css("display", "block");
-  });
+//   // abrir el modal habiliar
+//   $(document).on("click", ".habilitar-usu", function() {
+//      // Obtener el div padre más cercano con la clase "card"
+//      var cardPadre = $(this).closest('.card');
+//      // Obtener el valor del atributo "usuarioId"
+//      var id = cardPadre.attr('usuarioId');
+//     $('#id_user').val(id);
+//     $("#funcion").val("habilitar-usu");
+//     $(".titulo-modal").html("HABILITAR USUARIO")
+//     $("#modal-confirmar").css("display", "block");
+//   });
 
 
-  // abrir el modal deshabiliar
-  $(document).on("click", ".deshabilitar-usu", function() {
-    // Obtener el div padre más cercano con la clase "card"
-    var cardPadre = $(this).closest('.card');
-    // Obtener el valor del atributo "usuarioId"
-    var id = cardPadre.attr('usuarioId');
-   $('#id_user').val(id);
-   $("#funcion").val("deshabilitar-usu");
-   $(".titulo-modal").html("DESHABILITAR USUARIO")
-   $("#modal-confirmar").css("display", "block");
- });
+//   // abrir el modal deshabiliar
+//   $(document).on("click", ".deshabilitar-usu", function() {
+//     // Obtener el div padre más cercano con la clase "card"
+//     var cardPadre = $(this).closest('.card');
+//     // Obtener el valor del atributo "usuarioId"
+//     var id = cardPadre.attr('usuarioId');
+//    $('#id_user').val(id);
+//    $("#funcion").val("deshabilitar-usu");
+//    $(".titulo-modal").html("DESHABILITAR USUARIO")
+//    $("#modal-confirmar").css("display", "block");
+//  });
 
 
  // abrir el modal deshabiliar
@@ -287,8 +242,8 @@ $(document).ready(function(){
 
 
 
-
-  //TODO: VALIDACION CEDULA
+  //TODO: VALIDACIONES 
+  //CEDULA
   $("#ci").on("input", function(e) {
     var inputValue = e.target.value;
     // Eliminar caracteres no numéricos con exprecion regulares
@@ -301,7 +256,7 @@ $(document).ready(function(){
     e.target.value = inputValue;
   });
 
- //TODO: VALIDACION NOMBRE   
+ // VALIDACION NOMBRE   
   function validacion_nombres(id) {
     $(id).on("input", function(e) {
         e.preventDefault();

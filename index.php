@@ -31,9 +31,7 @@
         </form>
 
 </div>
-<div class="nuevo-ecuador">
-<img src="assets/img/escudo-nuevo-ecuador.png" alt="">
-</div>   
+ 
 </body>
 </html>
 
