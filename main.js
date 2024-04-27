@@ -4,12 +4,12 @@ let model, webcam, labelContainer, maxPredictions,img,previewImg,stopLoop,imagen
 let classMaster = null
 const btncompra = document.getElementById('enviarData');
 btncompra.disabled = true; 
-//description html
-const descrition = {
-    "pod_borer": "Esta es la descripción de la primera imagen. pod_borer",
-    "healthy": "Esta es la descripción de la segunda imagen. healthy",
-    "black_pod_rot": "Esta es la descripción de la tercera imagen. black_pod_rot"
-}
+// const load = document.getElementById("loading")
+// const overlay = document.getElementById("overlay")
+// load.style.visibility  = "hidden"
+// overlay.style.visibility  = "hidden"
+
+camara=document.getElementById("webcam-container")
 
 // document.getElementById('avatar').addEventListener('change',ModelFile) //leer el file
 document.getElementById('avatars').addEventListener('change',ModelFile) //leer el file
@@ -17,7 +17,6 @@ document.getElementById('avatars').addEventListener('change',ModelFile) //leer e
 // Caundo presiono el abri web can en html boton me hace que funcione esta funcion
 async function init() {
     // document.getElementById("ContDeteccion").style.display = "flex";
-    camara=document.getElementById("webcam-container")
     img=document.getElementById("preview-image")
     if (!camara.hasChildNodes()){
         stopLoop = false;
@@ -67,12 +66,12 @@ async function loop() {
 }
 async function ModelFile(){
     var file = this.files;
+    
     if(file.length>0){
+        // overlay.style.visibility  = "visible"
+        // load.style.visibility  = "visible"
         imagennn=document.getElementById("preview-image")
         imagennn.style.display = "flex";
-        console.log(imagennn.src.length);
-        // img.style.display = "grid";
-        camara=document.getElementById("webcam-container")
         if (camara.hasChildNodes()){
             webcam.stop()
             camara.removeChild(camara.firstChild);
@@ -114,17 +113,22 @@ async function ModelFile(){
             title: "Tienes que subir un archivo...",
             showConfirmButton: false,
             showCloseButton:true,
-            timer: 2500
+            timer: 2000
           });
         return
     }
+    // overlay.style.visibility  = "hidden"
+    // load.style.visibility  = "hidden"
+
 
     
 
 }
 
-async function predict(imgagess) {
 
+
+
+async function predict(imgagess) {
    // predict can take in an image, video or canvas html element
     const prediction = await model.predict(imgagess);
     let probabilityMax =0
@@ -140,10 +144,18 @@ async function predict(imgagess) {
     }
 
     var descripcionElemento = document.getElementById("descripcionImagen");
+    var descripcionTitle = document.getElementById("descripccion");
     descripcionElemento.innerHTML = descrition[classMaster];
+    const classMax = document.createElement("span");
+    classMax.innerHTML=": "+classMaster;
+    descripcionTitle.appendChild(classMax)
     btncompra.disabled = false; 
-
 }
+
+
+
+
+
 
 function enviar(){
     imagennn=document.getElementById('preview-image')
@@ -160,7 +172,24 @@ function enviar(){
     //     url: 'hay va el php creo :)',
     //     success:function(data){
     //         console.log(data);
+    //     Swal.fire({
+    //         position: "center",
+    //         icon: "success",
+    //         title: "Your work has been saved",
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     });
+    //      btncompra.disabled = true; 
     //     }
     // })
+    // QUITAR CUANDO SE ACTULIZE EL CODIGO DE ENVIO DEL POST
     console.log(datos);
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      btncompra.disabled = true;
 }
