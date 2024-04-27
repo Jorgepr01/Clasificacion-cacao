@@ -9,35 +9,41 @@
 
 
 
+/* HTML: <div class="loader"></div> */
 .loader {
-    width: 140px;
-    height: 30px;
-    border-radius: 40px;
-    color: #39a321;
-    border: 2px solid;
+    width: 50px;
+    aspect-ratio: 1;
     position: relative;
-    overflow: hidden;
   }
-  .loader::before {
+  .loader:before,
+  .loader:after {
     content: "";
     position: absolute;
-    margin: 2px;
-    width: 14px;
     top: 0;
-    bottom: 0;
-    left: -20px;
-    border-radius: inherit;
-    background: currentColor;
-    box-shadow: -10px 0 12px 3px currentColor;
-    clip-path: polygon(0 5%, 100% 0,100% 100%,0 95%,-30px 50%);
-    animation: l14 1s infinite linear;
+    left: 0;
+    margin: -8px 0 0 -8px;
+    width: 26px;
+    aspect-ratio: 1;
+    background: #3FB8AF;
+    animation:
+      l2-1 2s  infinite,
+      l2-2 1s infinite ;
   }
-  @keyframes l14 {
-    100% {left: calc(100% + 20px)}
+  .loader:after {
+    background:#FF3D7F;
+    animation-delay: -1s,0s;
   }
-
-
-
+  @keyframes l2-1 {
+    0%   {top:0   ;left:0}
+    25%  {top:100%;left:0}
+    50%  {top:100%;left:100%}
+    75%  {top:0   ;left:100%}
+    100% {top:0   ;left:0}
+  }
+  @keyframes l2-2 {
+     40%,50% {transform: rotate(0.25turn) scale(0.5)}
+     100%    {transform: rotate(0.5turn) scale(1)}
+  }
 
 
 
