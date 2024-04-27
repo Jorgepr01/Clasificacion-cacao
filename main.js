@@ -4,10 +4,10 @@ let model, webcam, labelContainer, maxPredictions,img,previewImg,stopLoop,imagen
 let classMaster = null
 const btncompra = document.getElementById('enviarData');
 btncompra.disabled = true; 
-// const load = document.getElementById("loading")
-// const overlay = document.getElementById("overlay")
-// load.style.visibility  = "hidden"
-// overlay.style.visibility  = "hidden"
+const load = document.getElementById("loading")
+const overlay = document.getElementById("overlay")
+load.style.visibility  = "hidden"
+overlay.style.visibility  = "hidden"
 
 camara=document.getElementById("webcam-container")
 
@@ -68,8 +68,8 @@ async function ModelFile(){
     var file = this.files;
     
     if(file.length>0){
-        // overlay.style.visibility  = "visible"
-        // load.style.visibility  = "visible"
+        overlay.style.visibility  = "visible"
+        load.style.visibility  = "visible"
         imagennn=document.getElementById("preview-image")
         imagennn.style.display = "flex";
         if (camara.hasChildNodes()){
@@ -117,8 +117,8 @@ async function ModelFile(){
           });
         return
     }
-    // overlay.style.visibility  = "hidden"
-    // load.style.visibility  = "hidden"
+    overlay.style.visibility  = "hidden"
+    load.style.visibility  = "hidden"
 
 
     
