@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* poner la imagen de fondo */
+    background: url(../img/fondo-login.png);
+    
+    /*especifica el tamaño de las imágenes de fondo: cubrir todo el contenedor*/
+    background-size: 100% 100%;
+    /* imagen se muestra en su tamaño original y no se repite en la dirección horizontal ni en la dirección vertical. */
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    /* la imagen de fondo se colocará en el centro del elemento tanto horizontal como verticalmente */
+    background-position: center;
+    /* altura maxima del dispositivo */
+    height: 100vh;
+}
+
+
+.ssee{
+    width: 400px; 
+    position: absolute; 
+    right: 30px; 
+    top: 70px; 
+    color: #32266b;
+    overflow: hidden;
+}
+
+.ssee h5{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    
+}
+
+
+
+.nuevo-ecuador{
+    width: 320px; 
+    position: absolute; 
+    right: 70px;
+    bottom: 0; 
+    color: #071e3e;
+}
+
+
+.nuevo-ecuador img{
+    width: 250px; 
+}
+
+
+
+.logo {
+    width: 320px;
+    height: 420px;
+    background-color: rgba(160, 153, 153, 0.5);
+    color: black;
+    top: 50%;
+    right: 30px;
+    /* poner adelante */
+    position: absolute;
+    /*tranformar para poner un elemeto como lo quieres */
+    transform: translatey(-50%);
+    /* en un elemento, el relleno ancho y la altura */
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+/* poner la primer la letra mayuscula */
+.logo :first-letter {
+    text-transform: uppercase;
+}
+
+/* imagen de login */
+.logo .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.logo label {
+    margin: 0;
+    padding: 0;
+    /* se utiliza para establecer el grosor (o peso) de la fuente de un elemento de texto. */
+    font-weight: bold;
+    display: block;
+}
+
+.logo input {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.logo input[type="text"],
+.logo input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #FFD700;
+    /* fondo transparente */
+    background: transparent;
+    /* para que no se me refleje caja */
+    outline: none;
+    height: 40px;
+    color: #1a0b04;
+    font-size: 18px;
+}
+
+.logo input[type="submit"] {
+    border: none;
+    /* para que no se me refleje caja */
+    outline: none;
+    height: 40px;
+    background: #ffc107;
+    color: #000;
+    font-size: 20px;
+    border-radius: 200px;
+}
+
+.logo input[type="submit"]:hover {
+    cursor: pointer;
+    background: #32266b;
+    color: white;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 20px;
+    color: #000;
+}
+
+.logo a:hover {
+    color: #2e0fb8;
+}
+
+
+@media screen and (max-width: 1400px){
+    body {
+        margin: 0;
+        padding: 0;
+        /* poner la imagen de fondo */
+        background: url(../img/bg.jpg);
+        
+        /*especifica el tamaño de las imágenes de fondo: cubrir todo el contenedor*/
+        background-size: 100% 100%;
+        /* imagen se muestra en su tamaño original y no se repite en la dirección horizontal ni en la dirección vertical. */
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        /* la imagen de fondo se colocará en el centro del elemento tanto horizontal como verticalmente */
+        background-position: center;
+        /* altura maxima del dispositivo */
+        height: 100vh;
+    }
+    .ssee{
+        opacity: 0;
+    }
+    .logo {
+        width: 320px;
+        height: 420px;
+        background-color: rgba(255, 255, 255, 0.5);;
+        color: black;
+        top: 50%;
+        left: 50%;
+        /* poner adelante */
+        position: absolute;
+        /*tranformar para poner un elemeto como lo quieres */
+        transform: translate(-50%, -50%);
+        /* en un elemento, el relleno ancho y la altura */
+        box-sizing: border-box;
+        padding: 70px 30px;
+    }
+
+}
