@@ -6,7 +6,9 @@
         display: grid;
     }
   }
-
+#cam{
+  margin-bottom: 0;
+}
 
 
 /* HTML: <div class="loader"></div> */
@@ -66,10 +68,15 @@
     color: rgb(35, 35, 35);
 }
 
-
+/* 
 .este {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
+} */
+
+label {
+  display: inline-block;
+  margin-bottom: 0 !important;
 }

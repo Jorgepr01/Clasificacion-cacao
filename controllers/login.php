@@ -11,10 +11,7 @@ $pass = $_POST['password'];
 $usuario = new Usuario();
 
 // Verificar si hay una sesión en curso
-if (!empty($_SESSION["us_tipo"])) {
-    // Llamar a la función de loguearse
-    $usuario = $usuario->loguearse($email, $pass);
-} else {
+if (empty($_SESSION["us_tipo"])) {
     // Llamar a la función de loguearse
     $usuario = $usuario->loguearse($email, $pass);
 }
@@ -67,6 +64,9 @@ if (!empty($usuario)) {
     // No se encontró un usuario válido en la base de datos
     redirectindex('index.php');
 }
+
+
+
 
 // Función de redirección
 function redirect($location) {

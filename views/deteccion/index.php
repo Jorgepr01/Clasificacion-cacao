@@ -1,22 +1,71 @@
+<?php
+session_name("agrocacao");
+//inciar sesiones 
+session_start();
+//para destruir session
+if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Home | Procesamiento</title>
+    <?php include_once("../Layouts/Head.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./style.css">
-
+	<link rel="stylesheet" href="../../assets/css/deteccion.css">
 </head>
+
 <body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
+
+        <?php include_once("../Layouts/Header.php"); ?>
+
+
+        <?php include_once("../Layouts/Nav.php"); ?>
+
+        <!-- begin #content -->
+        <div id="content" class="content">
+
+            <!-- begin breadcrumb -->
+            <ol class="breadcrumb float-xl-right">
+                <li class="breadcrumb-item"><a href="../../controllers/login.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="./index.php">Procesamiento de Imágenes</a></li>
+            </ol>
+            <!-- end breadcrumb -->
+
+
+            <!-- begin page-header -->
+            <h1 class="page-header">Procesamiento de Imágenes <small>Cargar, Identidicar, Procesar, Gua</small></h1>
+            <!-- end page-header -->
+
+
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Procesamiento de Imágenes</h4>
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a> -->
+                    </div>
+                </div>
+                <div class="panel-body">
 
 
 
-<div class="flex flex-col gap-2 md:gap-4 xl:gap-6" id="Presentation">
+
+
+				<div class="flex flex-col gap-2 md:gap-4 xl:gap-6" id="Presentation">
   <div class="grid md:grid-cols-2 items-start gap-4 xl:gap-8" id="ContDeteccion">
     <div id="webcam-container" class="w-75 object-cover rounded-lg overflow-hidden border dark:border-gray-800" style="max-width: 100%;
     height: auto; margin:auto; object-fit: cover; display:none" ></div>
@@ -43,7 +92,7 @@
       <div id="descripcionImagen"></div>
       <div id="label-container"></div>
 
-      <br>
+<br/>
       <!-- Camara y File -->
       <div class="flex items-center justify-center">
         
@@ -51,7 +100,7 @@
 
         <label
           for="file-upload"
-          class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:hover:bg-gray-600 dark:border-gray-600 dark:hover:text-gray-200"
+          class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:hover:text-gray-950"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +126,7 @@
         <button
           type="button"
           onclick="init()"
+		  id="cam"
           class="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
         >
           <svg
@@ -134,9 +184,51 @@
 </div>
 
 <script src="./descrition.js"></script>
-<script src="./main.js"></script>
+<script src="./deteccion.js"></script>
 
 
 
+
+
+
+
+
+
+
+
+
+
+					
+
+
+
+				
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end panel -->
+    </div>
+    <!-- end #content -->
+
+
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+
+
+    <?php include_once("../Layouts/modal.php"); ?>
+    <?php include_once("../Layouts/Js.php"); ?>
+    <script type="text/javascript" src="../admin_usuario/admin_usuario.js"></script>
 </body>
-</html> 
+
+</html>
+
+<?php
+} else {
+    header('Location: ../../controllers/login.php');
+}
+?>

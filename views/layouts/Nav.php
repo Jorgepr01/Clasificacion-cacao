@@ -33,15 +33,17 @@
 
 				</li>
 
-
 				<li class="has-sub">
-					<a href="../Proyecto/index.php">
+					<a href="../deteccion/index.php">
 						<!-- <b class="caret"></b> -->
 						<i class="fas fa-lg fa-fw m-r-10 fa-bullseye"></i>
-						<span>procesamiento de Imágenes</span>
+						<span>Procesamiento de Imágenes</span>
 					</a>
 
 				</li>
+
+
+				
 			<?php
 			// } else {
 			// 	header('Location: ../../controllers/login.php');

@@ -1,3 +1,11 @@
+<?php
+    session_name("agrocacao");
+    session_start();
+if(isset($_SESSION["us_tipo"])){
+    header("Location: views/Home/admin_catalogo.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,11 +19,9 @@
 </head>
 <body>
 <div class="logo">
-        <h1 style="color: DarkGoldenrod;">Agrocacao</h1>
         <h1>Acceder a tu cuenta</h1>
         <!-- include  cuantas veces seas -->
         <form action="controllers/login.php" method="post">
-            
             <!-- user name -->
             <label for="username"><i class="fa-solid fa-user"></i> Usuario</label>
             <input type="text" placeholder="Ingresar Usuario" name="usuario">
@@ -26,7 +32,7 @@
             <!-- boton -->
             <input type="submit" value="INICIO" name="btningresar">
             
-            <a href="">¿Has Olvidado tu Contraseña?</a>
+            <!-- <a href="">¿Has Olvidado tu Contraseña?</a> -->
             
         </form>
 

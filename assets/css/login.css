@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     /* poner la imagen de fondo */
-    background: url(../img/fondo-login.png);
+    background: url(../img/bg.jpg);
     
     /*especifica el tamaño de las imágenes de fondo: cubrir todo el contenedor*/
     background-size: 100% 100%;
@@ -63,6 +63,7 @@ body {
     /* en un elemento, el relleno ancho y la altura */
     box-sizing: border-box;
     padding: 70px 30px;
+    border-radius: 10%;
 }
 /* poner la primer la letra mayuscula */
 .logo :first-letter {
@@ -84,6 +85,7 @@ body {
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
+    color: #292a2c;
 }
 
 .logo label {
@@ -102,7 +104,7 @@ body {
 .logo input[type="text"],
 .logo input[type="password"] {
     border: none;
-    border-bottom: 1px solid #FFD700;
+    border-bottom: 1px solid #684a46;
     /* fondo transparente */
     background: transparent;
     /* para que no se me refleje caja */
@@ -117,7 +119,7 @@ body {
     /* para que no se me refleje caja */
     outline: none;
     height: 40px;
-    background: #ffc107;
+    background: #684a46;
     color: #000;
     font-size: 20px;
     border-radius: 200px;
