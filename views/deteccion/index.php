@@ -73,7 +73,7 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
       alt="Image"
       class="w-70 object-cover rounded-lg overflow-hidden border dark:border-gray-800"
       height="700"
-      src="./Sana.jpg"
+      src="./DefaulFinal.png"
       width="1050"
       style="aspect-ratio: 1050 / 700; object-fit: cover;"
       id="preview-image"
