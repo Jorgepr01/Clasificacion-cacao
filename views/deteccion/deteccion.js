@@ -1,5 +1,5 @@
 //modelo :) tm
-const URL = 'https://teachablemachine.withgoogle.com/models/A3dOiWWUw/';
+const URL = 'https://teachablemachine.withgoogle.com/models/PaU39QpA-/';
 let model, webcam, labelContainer, maxPredictions,img,previewImg,stopLoop,imagennn,camara;
 let classMaster = null
 const btncompra = document.getElementById('enviarData');
