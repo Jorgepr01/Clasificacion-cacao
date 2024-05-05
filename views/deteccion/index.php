@@ -118,7 +118,7 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
             <polyline points="17 8 12 3 7 8"></polyline>
             <line x1="12" x2="12" y1="3" y2="15"></line>
           </svg>
-          Upload File
+          Subir Imagen
         </label>
         <input id="file-upload" class="sr-only" accept="image/*" type="file" />
 
@@ -144,7 +144,7 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
             <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
             <circle cx="12" cy="13" r="3"></circle>
           </svg>
-          Take Photo
+          Camara
         </button>
       </div>
     
@@ -155,7 +155,7 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
           onclick="enviar()"
           class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
         >
-          Submit
+          Enviar
         </button>
       </div>
 

@@ -172,34 +172,6 @@ if ($_POST['funcion'] == 'crear_usuario') {
 
 
 
-//TODO: buscar usuario actual
-if($_POST['funcion']=='dato_usuario'){
-    $json=array();
-    $fecha_actual = new DateTime();
-    $usuario->dato_usuario($id_usuario);
-    foreach ($usuario->objetos as $objeto) { 
-     $nacimiento = new DateTime($objeto->edad_us);
-     $edad=$nacimiento->diff($fecha_actual);
-     $edad_years = $edad->y;
-     $json[]=array(
-      'id_us'=>$objeto->id_us,   
-      'nombres'=>$objeto->nombre_us,
-      'apellidos'=>$objeto->apellido_us,
-      'edad'=>$edad_years,
-      'ci'=>$objeto->ci_us,
-      'correo'=>$objeto->email_us,
-      'nombre_tipo'=>$objeto->nombre_tipo_us,
-      'tipo_us_id'=>$objeto->tipo_us_id,  
-      'nombre_estado_usuario'=>$objeto->nombre_estado_us,
-      'avatar'=>$objeto->avatar
-     );  
-    }
-
-    $jsonstring = json_encode($json);
-    echo $jsonstring;
-}
-
-
 
 
 //TODO: borrar usuario
