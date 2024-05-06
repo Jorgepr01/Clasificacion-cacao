@@ -16,6 +16,9 @@ if (empty($_SESSION["us_tipo"])) {
     $usuario = $usuario->loguearse($email, $pass);
 }
 
+
+
+
 // Verificar si se obtuvo un usuario válido
 if (!empty($usuario)) {
     // Obtiene el estado del usuario desde la base de datos
