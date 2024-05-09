@@ -5,7 +5,7 @@ $(document).ready(function(){
     function cargar_nav_perfil(){
         funcion = 'dato_usuario';
         $.post('../../controllers/usuario.php', {funcion }, (response) => {
-            // console.log(response);
+            console.log(response);
             template='';
             var datos = JSON.parse(response);
             // console.log(datos);
@@ -42,6 +42,7 @@ $(document).ready(function(){
             `;
             $("#navbar-user").html(template);
         });
+        
     }
 
     // Llama a la función cargar_nav_perfil

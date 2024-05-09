@@ -1,7 +1,7 @@
 <!-- begin #sidebar -->
 <div id="sidebar" class="sidebar">
 	<!-- begin sidebar scrollbar -->
-	<div data-scrollbar="true" data-height="100%">
+	<div data-scrollbar="true" data-height="100%" style="background-color: #57160ef0; ">
 		<!-- begin sidebar user -->
 		<ul class="nav" id="nav-perfil">
 			

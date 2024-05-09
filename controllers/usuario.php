@@ -48,6 +48,17 @@ if($_POST["funcion"] == "tipos_usuario"){
     echo $jsonstring;
 }
 
+// //TODO: tipos de usuario
+// if($_POST["funcion"] == "act_perfil"){
+//     $json = array();
+//     $nuevosDatos = {
+//         nombre: nombre,
+//         apellido: apellido,
+//         telefono: telefono
+//     };
+//     $usuario->actualizarDatosUser($nuevosDatos);
+// }
+
 
 //TODO: buscar usuarios
 if($_POST['funcion'] == 'buscar_usuarios'){

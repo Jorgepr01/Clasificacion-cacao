@@ -4,6 +4,7 @@ include_once 'conexion.php';
 class usuario
 {
   var $objetos;
+  private $acceso;
   public function __construct()
   {
     $db = new conexion();
@@ -119,6 +120,27 @@ class usuario
     $this->objetos = $query->fetchAll();
     return $this->objetos;
   }
+
+
+
+
+//TODO: datos personales
+function actualizarDatosUser($id, $nuevos_datos)
+{
+    $sql = "UPDATE usuario 
+            SET nombre_us = :nombre, apellido_us = :apellido, telefono = :telefono 
+            WHERE id_us = :id";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(
+        ':nombre' => $nuevos_datos['nombre'],
+        ':apellido' => $nuevos_datos['apellido'],
+        ':telefono' => $nuevos_datos['telefono'],
+        ':id' => $id
+    ));
+}
+
+
+
 
   //TODO: borrar usuario
   function borrar($pass, $id_borrado, $id_usuario)
