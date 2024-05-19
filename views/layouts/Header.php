@@ -23,7 +23,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a href="../Perfil/index.php" class="dropdown-item">Perfil</a>
 						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item">Cambiar Contraseña</a>
+						<button class="dropdown-item cambiar-contrasena">Cambiar Contraseña</button>
 						<a href="../../controllers/cerrar_sesion.php" class="dropdown-item">Cerrar Session</a>
 					</div>
 				</li>

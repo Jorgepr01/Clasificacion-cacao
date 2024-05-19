@@ -38,6 +38,25 @@ class usuario
     }
   }
 
+  // TODO: CAMBIAR CONTRASEÑA
+  function cambiar_contra($oldpass, $newpass, $id_usuario)
+  {
+    $sql = "SELECT * FROM usuario where id_us=:id";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(':id' => $id_usuario));
+    $this->objetos = $query->fetch();
+    if (!empty($this->objetos) && password_verify($oldpass, $this->objetos->contrasena_us)) {
+      $contraseña_segura = password_hash($newpass, PASSWORD_BCRYPT, ['cost' => 4]);
+      $sql = "UPDATE usuario SET contrasena_us=:newpass where id_us=:id";
+      $query = $this->acceso->prepare($sql);
+      $query->execute(array(':id' => $id_usuario, ':newpass' => $contraseña_segura));
+      echo 'update';
+    } else {
+      echo 'noupdate';
+    }
+  }
+
+
 
   //TODO: tipos de usuario
   function tipo_usuario()
@@ -124,20 +143,20 @@ class usuario
 
 
 
-//TODO: datos personales
-function actualizarDatosUser($id, $nuevos_datos)
-{
+  //TODO: datos personales
+  function actualizarDatosUser($id, $nuevos_datos)
+  {
     $sql = "UPDATE usuario 
             SET nombre_us = :nombre, apellido_us = :apellido, telefono = :telefono 
             WHERE id_us = :id";
     $query = $this->acceso->prepare($sql);
     $query->execute(array(
-        ':nombre' => $nuevos_datos['nombre'],
-        ':apellido' => $nuevos_datos['apellido'],
-        ':telefono' => $nuevos_datos['telefono'],
-        ':id' => $id
+      ':nombre' => $nuevos_datos['nombre'],
+      ':apellido' => $nuevos_datos['apellido'],
+      ':telefono' => $nuevos_datos['telefono'],
+      ':id' => $id
     ));
-}
+  }
 
 
 
@@ -195,5 +214,4 @@ function actualizarDatosUser($id, $nuevos_datos)
       echo 'noexit';
     }
   }
-
 }

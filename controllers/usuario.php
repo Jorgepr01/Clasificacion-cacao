@@ -21,6 +21,7 @@ if ($_POST['funcion'] == 'dato_usuario') {
             'apellidos' => $objeto->apellido_us,
             'edad' => $edad_years,
             'ci' => $objeto->ci_us,
+            'telefono' => $objeto->telefono,
             'correo' => $objeto->email_us,
             'nombre_tipo' => $objeto->nombre_tipo_us,
             'tipo_us_id' => $objeto->tipo_us_id,
@@ -59,6 +60,14 @@ if ($_POST["funcion"] == "tipos_usuario") {
 //     $usuario->actualizarDatosUser($nuevosDatos);
 // }
 
+//TODO: cambiar contraseña
+if($_POST['funcion']=='cambiar_contra'){
+    $oldpass = filter_input(INPUT_POST, 'oldpass', FILTER_SANITIZE_STRING);
+    $newpass = filter_input(INPUT_POST, 'newpass', FILTER_SANITIZE_STRING);
+   //  $newpass=$_POST['newpass'];
+    $usuario->cambiar_contra($oldpass,$newpass,$id_usuario);
+       
+   }
 
 //TODO: buscar usuarios
 if ($_POST['funcion'] == 'buscar_usuarios') {

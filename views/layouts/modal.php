@@ -39,3 +39,44 @@
      </form>
   </div>
 </div>
+
+
+<!-- modal de cambiar contraseña -->
+<div id="modal-cambiar-contraseña" class="modal-propio">
+  <div class="modal-content-propio">
+  <span class="close">&times;</span>
+    <h4 class="titulo-modal">CAMBIAR CONTRASEÑA</h1>
+    <!-- alert de crear usuario -->
+    <div class="stylo-alerta-confirmacion" id="update" style='display:none;'>
+      <span><i class="fas fa-check"></i>Cambio de Contraseña</span>
+    </div>
+    <div class="stylo-alerta-rechazo" id="noupdate" style='display:none;'>
+      <span><i class="fas fa-times m-1"></i>Contraseña Incorrecta</span>
+    </div>
+    <!-- form de cambiar contraseña -->
+    <form id="form-pass" class="formulario">
+        
+        <!-- contraseña vieja input -->
+              <div class="form">
+                <input id="oldpass" type="password" class="form-control" required>
+		            <label class="lbl">
+		  	        <span class="text-span"><i class="fas fa-unlock-alt"></i> INGRESAR CONTRASEÑA</span>
+		            </label>
+              </div>
+
+              <div class="form">
+                <input id="newpass" type="password" class="form-control" required>
+		            <label class="lbl">
+		  	        <span class="text-span"><i class="fas fa-lock"></i> INGRESAR CONTRASEÑA NUEVA</span>
+		            </label>
+              </div>
+      <div class="button-container">
+       <!-- botones cerrar y guardar -->
+        <button type="submit" class="inline-button">Guardar</button>
+        
+      </div>  
+     </form>
+    
+    
+  </div>
+</div>

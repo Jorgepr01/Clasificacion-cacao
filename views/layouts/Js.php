@@ -114,6 +114,7 @@
 
 <!-- ================== JS PROPIOS ================== -->
 <script src="..\..\assets\js\Nav.js"></script>
+<script src="..\..\assets\js\contenido.js"></script>
 <!-- ================== FIN JS PROPIOS ================== -->
 
 
