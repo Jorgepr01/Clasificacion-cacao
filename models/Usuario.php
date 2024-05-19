@@ -156,7 +156,12 @@ class usuario
       ':telefono' => $nuevos_datos['telefono'],
       ':id' => $id
     ));
+<<<<<<< HEAD
   }
+=======
+    return true;
+}
+>>>>>>> 0df890e61317ed27438bd52f4184fda44cd5b784
 
 
 
