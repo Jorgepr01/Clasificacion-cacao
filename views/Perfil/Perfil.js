@@ -81,18 +81,18 @@ $(document).ready(function(){
                     <form id="act_perfil">
                         <div>
                           <label for="nombre">Nombre:</label><br>
-                          <input type="text" id="nombre" name="nombre" required><br>
+                          <input type="text" id="nombre" name="nombre" class='input-_update' required><br>
                         </div>
                         <div>
                           <label for="apellido">Apellido:</label><br>
-                          <input type="text" id="apellido" name="apellido" required><br>
+                          <input type="text" id="apellido" class='input-_update' name="apellido" required><br>
                         </div>
                         <div>
                           <label for="telefono">Teléfono:</label><br>
-                          <input type="tel" id="telefono" name="telefono" required><br>
+                          <input type="tel" id="telefono" class='input-_update' name="telefono" required><br>
                         </div>
                         <br>
-                        <input type="submit" class="btn_act" value="Guardar">
+                        <input type="submit" class="btn_act" value="Guardar" id='actualizar-user'>
                       </form>
                       ${response}
                     </div>

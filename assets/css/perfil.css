@@ -73,7 +73,7 @@
 }
 
 
-form {
+.act_perfil {
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
@@ -84,9 +84,7 @@ form {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-input[type="text"],
-input[type="tel"],
-input[type="submit"] {
+.input-_update{
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -94,14 +92,14 @@ input[type="submit"] {
   border-radius: 4px;
   box-sizing: border-box;
 }
-input[type="submit"] {
+#actualizar-user {
   background-color: #57170edb;
   color: white;
   border: none;
   transition-duration: 0.3s;
   cursor: pointer; 
 }
-input[type="submit"]:hover {
+#actualizar-user:hover {
   background-color: #57160e;
 }
 .content-wrapper {
