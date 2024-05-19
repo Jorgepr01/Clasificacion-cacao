@@ -29,8 +29,28 @@ $(document).ready(function(){
                         </li>
                         <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
                       </ul>
-                    </div>        
+                    </div>
+                    
+                    <div class="Formulario">
+                    <form id="act_perfil">
+                        <div>
+                          <label for="nombre">Nombre:</label><br>
+                          <input type="text" id="nombre" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
+                        </div>
+                        <div>
+                          <label for="apellido">Apellido:</label><br>
+                          <input type="text" id="apellido" class='input-_update' name="apellido" value="${usuario.apellidos}" required><br>
+                        </div>
+                        <div>
+                          <label for="telefono">Teléfono:</label><br>
+                          <input type="tel" id="telefono" class='input-_update' name="telefono" required><br>
+                        </div>
+                        <br>
+                        <input type="submit" class="btn_act" value="Guardar" id='actualizar-user'>
+                      </form>
+                    </div>
                 </div>
+            
               `
   
             $('#datos_personales').html(template)
@@ -45,76 +65,9 @@ $(document).ready(function(){
     });
 
 
-    
-    // //TODO: Modal de cambiar avatar
-    // var act_perfil = $("#modal-cambiar-avatar");
-    $('#act_perfil').on('click', '.btn_act', function () {
-      //   Tu código para mostrar el modal aquí
-        funcion = 'act_perfil';
-        $.post('../../controllers/usuario.php', {
-            funcion
-          }, (response) => {
-            template = '';
-            template += `
-            <h1 class="titulo">DATOS PERSONALES</h1>
-            <div class="display-perfil">
-                    <div class="personal-info">
-                      <h2>DATOS</h2>
-                    
-                      <div class="image">
-                        <img src="../../uploads/avatar/${usuario.avatar}">
-                      </div>
-                      <ul>
-                        <li><b style="color:#0b7300">NOMBRES:</b><a id="nombre"></a> ${usuario.nombres}</li>
-                        <li><b style="color:#0b7300">APELLIDOS:</b><a id="apelllido"></a> ${usuario.apellidos}</li>
-                        <li><b style="color:#0b7300">EDAD:</b><a id="edad"></a> ${usuario.edad}</li>
-                        <li><b style="color:#0b7300">C.I: </b><a id="ci"></a>${usuario.ci}</li>
-                        <li>
-                          <b style="color:#0b7300">TIPO DE USUARIO:</b>
-                          <span id="us_tipo">${usuario.nombre_tipo}</span>
-                        </li>
-                        <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
-                      </ul>
-                    </div>
-                    
-                    <div class="Formulario">
-                    <form id="act_perfil">
-                        <div>
-                          <label for="nombre">Nombre:</label><br>
-                          <input type="text" id="nombre" name="nombre" class='input-_update' required><br>
-                        </div>
-                        <div>
-                          <label for="apellido">Apellido:</label><br>
-                          <input type="text" id="apellido" class='input-_update' name="apellido" required><br>
-                        </div>
-                        <div>
-                          <label for="telefono">Teléfono:</label><br>
-                          <input type="tel" id="telefono" class='input-_update' name="telefono" required><br>
-                        </div>
-                        <br>
-                        <input type="submit" class="btn_act" value="Guardar" id='actualizar-user'>
-                      </form>
-                      ${response}
-                    </div>
-                </div>
-              `;
   
-              $('#datos_personales').html(template)
+
   
-        })
-        modal_cambiar_avatar.css("display", "block");
-      });
-
-    
-
-
-
-
-
-
-
-
-
     //TODO: Modal de cambiar avatar
     var modal_cambiar_avatar = $("#modal-cambiar-avatar");
     $('#datos_personales').on('click', '.btn-avatar', function () {
