@@ -49,15 +49,15 @@ if($_POST["funcion"] == "tipos_usuario"){
 }
 
 // //TODO: tipos de usuario
-// if($_POST["funcion"] == "act_perfil"){
-//     $json = array();
-//     $nuevosDatos = {
-//         nombre: nombre,
-//         apellido: apellido,
-//         telefono: telefono
-//     };
-//     $usuario->actualizarDatosUser($nuevosDatos);
-// }
+if($_POST["funcion"] == "act_perfil"){
+    $json = array();
+    $nuevosDatos = {
+        nombre: nombre,
+        apellido: apellido,
+        telefono: telefono
+    };
+    $usuario->actualizarDatosUser($nuevosDatos);
+}
 
 
 //TODO: buscar usuarios
