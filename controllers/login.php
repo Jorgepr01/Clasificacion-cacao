@@ -10,11 +10,8 @@ $pass = $_POST['password'];
 // Crear una instancia de la clase Usuario
 $usuario = new Usuario();
 
-// Verificar si hay una sesión en curso
-if (empty($_SESSION["us_tipo"])) {
-    // Llamar a la función de loguearse
-    $usuario = $usuario->loguearse($email, $pass);
-}
+// Llamar a la función de loguearse
+$usuario = $usuario->loguearse($email, $pass);
 
 // Verificar si se obtuvo un usuario válido
 if (!empty($usuario)) {
@@ -48,13 +45,15 @@ if (!empty($usuario)) {
         $_SESSION["avatar"] = $usuario['avatar'];
 
         // Redirigir según el tipo de usuario
-        switch ($_SESSION["us_tipo"]) {
-            case 1:
-                redirect('admin_catalogo.php');
-                break;
-            case 2:
-                redirect('usuario_catalogo.php');
-                break; 
+        if(isset($_SESSION["us_tipo"])){
+            switch ($_SESSION["us_tipo"]) {
+                case 1:
+                    redirect('admin_catalogo.php');
+                    break;
+                case 2:
+                    redirect('agricultor_catalogo.php');
+                    break;
+            }
         }
     } else {
         // Usuario no está habilitado (inactivo)

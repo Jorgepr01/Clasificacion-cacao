@@ -155,30 +155,32 @@ $(document).ready(function(){
     }
   })
 
-//   // abrir el modal habiliar
-//   $(document).on("click", ".habilitar-usu", function() {
-//      // Obtener el div padre más cercano con la clase "card"
-//      var cardPadre = $(this).closest('.card');
-//      // Obtener el valor del atributo "usuarioId"
-//      var id = cardPadre.attr('usuarioId');
-//     $('#id_user').val(id);
-//     $("#funcion").val("habilitar-usu");
-//     $(".titulo-modal").html("HABILITAR USUARIO")
-//     $("#modal-confirmar").css("display", "block");
-//   });
+  // abrir el modal habiliar
+  $(document).on("click", ".habilitar-usu", function() {
+     // Obtener el div padre más cercano con la clase "card"
+     var cardPadre = $(this).closest('.card');
+     // Obtener el valor del atributo "usuarioId"
+     var id = cardPadre.attr('usuarioId');
+    //  console.log(id);
+    $('#id_user').val(id);
+    $("#funcion").val("habilitar-usu");
+    $(".titulo-modal").html("HABILITAR USUARIO")
+    $("#modal-confirmar").css("display", "block");
+  });
 
 
-//   // abrir el modal deshabiliar
-//   $(document).on("click", ".deshabilitar-usu", function() {
-//     // Obtener el div padre más cercano con la clase "card"
-//     var cardPadre = $(this).closest('.card');
-//     // Obtener el valor del atributo "usuarioId"
-//     var id = cardPadre.attr('usuarioId');
-//    $('#id_user').val(id);
-//    $("#funcion").val("deshabilitar-usu");
-//    $(".titulo-modal").html("DESHABILITAR USUARIO")
-//    $("#modal-confirmar").css("display", "block");
-//  });
+  // abrir el modal deshabiliar
+  $(document).on("click", ".deshabilitar-usu", function() {
+    // Obtener el div padre más cercano con la clase "card"
+    var cardPadre = $(this).closest('.card');
+    // Obtener el valor del atributo "usuarioId"
+    var id = cardPadre.attr('usuarioId');
+    // console.log(id);
+   $('#id_user').val(id);
+   $("#funcion").val("deshabilitar-usu");
+   $(".titulo-modal").html("DESHABILITAR USUARIO")
+   $("#modal-confirmar").css("display", "block");
+ });
 
 
  // abrir el modal deshabiliar

@@ -136,4 +136,42 @@ class usuario
       echo 'noborrado';
     }
   }
+
+  //TODO: Deshabilitar Usuario
+  function deshabilitar_usuario($pass, $id_deshabilitar, $id_usuario)
+  {
+    $sql = "SELECT id_us, contrasena_us FROM usuario where id_us=:id_usuario";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(':id_usuario' => $id_usuario));
+    $this->objetos = $query->fetch();
+
+    if (!empty($this->objetos) && password_verify($pass, $this->objetos->contrasena_us)) {
+      $habilitado = 2;
+      $sql = "UPDATE usuario SET estado_us_id = :habilitado where id_us=:id";
+      $query = $this->acceso->prepare($sql);
+      $query->execute(array(':id' => $id_deshabilitar, ':habilitado' => $habilitado));
+      echo 'deshabilitado';
+    } else {
+      echo 'nodeshabiltado';
+    }
+  }
+
+  //TODO: Habilitar usuario
+  function habilitar_usuario($pass, $id_habilitar, $id_usuario)
+  {
+    $sql = "SELECT id_us, contrasena_us FROM usuario where id_us=:id_usuario";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(':id_usuario' => $id_usuario));
+    $this->objetos = $query->fetch();
+    if (!empty($this->objetos) && password_verify($pass, $this->objetos->contrasena_us)) {
+      $habilitado = 1;
+      $sql = "UPDATE usuario SET estado_us_id =:habilitado where id_us=:id";
+      $query = $this->acceso->prepare($sql);
+      $query->execute(array(':id' => $id_habilitar, ':habilitado' => $habilitado));
+      echo 'habilitado';
+    } else {
+      echo 'noexit';
+    }
+  }
+
 }

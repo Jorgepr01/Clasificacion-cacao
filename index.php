@@ -1,10 +1,21 @@
 <?php
     session_name("agrocacao");
     session_start();
-if(isset($_SESSION["us_tipo"])){
-    header("Location: views/Home/admin_catalogo.php");
-    exit();
-}
+    if(isset($_SESSION["us_tipo"])){
+        switch ($_SESSION["us_tipo"]) {
+            case 1:
+                redirect('admin_catalogo.php');
+                break;
+            case 2:
+                redirect('agricultor_catalogo.php');
+                break;
+        }
+    }
+    // Función de redirección
+    function redirect($location) {
+        header("Location: views/Home/$location");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

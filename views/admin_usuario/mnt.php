@@ -83,7 +83,7 @@
                         <select class="form-control" id="select-tipo">  
                             <option value="" selected="">Tipo de Usuario</option>
                             <option value="1">Administrador</option>
-                            <option value="2">Usuario</option>
+                            <option value="2">Agricultor</option>
                         </select> 
                         <div class="stylo-alerta-rechazo" id="tipo-usuario" style='display:none;'>
                             <span><i class="fas fa-times m-1"></i>Seleccione Tipo de usuario</span>
