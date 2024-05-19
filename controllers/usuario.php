@@ -49,15 +49,44 @@ if ($_POST["funcion"] == "tipos_usuario") {
 }
 
 //TODO: tipos de usuario
-// if($_POST["funcion"] == "act_perfil"){
-//     $json = array();
-//     $nuevosDatos = {
-//         nombre: nombre,
-//         apellido: apellido,
-//         telefono: telefono
-//     };
-//     $usuario->actualizarDatosUser($nuevosDatos);
-// }
+if($_POST["funcion"] == "act_perfil"){
+    $json = array();
+    $fecha_actual = new DateTime();
+    $usuario->dato_usuario($id_usuario);
+    foreach ($usuario->objetos as $objeto) {
+        $nacimiento = new DateTime($objeto->edad_us);
+        $edad = $nacimiento->diff($fecha_actual);
+        $edad_years = $edad->y;
+        $json[] = array(
+            'id_us' => $objeto->id_us,
+            // 'nombres' => $objeto->nombre_us,
+            // 'apellidos' => $objeto->apellido_us,
+            'edad' => $edad_years,
+            'ci' => $objeto->ci_us,
+            'correo' => $objeto->email_us,
+            'nombre_tipo' => $objeto->nombre_tipo_us,
+            'tipo_us_id' => $objeto->tipo_us_id,
+            'nombre_estado_usuario' => $objeto->nombre_estado_us,
+            'avatar' => $objeto->avatar,
+            'nombres' => $_POST["nombre_usuario"],
+            'apellidos' => $_POST["apellido_usuario"],
+            'telefono' => $_POST["telefono"]
+        );
+    }
+
+
+    $nuevosDatos = array(
+        'nombre' => $_POST["nombre_usuario"],
+        'apellido' => $_POST["apellido_usuario"],
+        'telefono' => $_POST["telefono"]
+    );
+
+    
+    $usuario->actualizarDatosUser($id_usuario,$nuevosDatos);
+
+    $jsonstring = json_encode($json);
+    echo $jsonstring;
+}
 
 
 //TODO: buscar usuarios

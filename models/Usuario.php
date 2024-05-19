@@ -137,6 +137,7 @@ function actualizarDatosUser($id, $nuevos_datos)
         ':telefono' => $nuevos_datos['telefono'],
         ':id' => $id
     ));
+    return true;
 }
 
 
