@@ -7,7 +7,7 @@ $(document).ready(function(){
      consulta,
      funcion
     }, (response) => {
-      console.log(response);
+      // console.log(response);
     const usuarios = JSON.parse(response);
     let template = '';
     usuarios.forEach(usuario => {

@@ -89,3 +89,12 @@
 <link href="..\..\assets\css\modal.css" rel="stylesheet">
 <link href="..\..\assets\css\perfil.css" rel="stylesheet">
 <!-- ================== FIN CSS PROPIOS ================== -->
+
+<!-- ruta donde cambio el color de la cabezera crad principal -->
+<!-- ruta:assets\css\default\app.min.css -->
+<!-- Head -->
+<!-- linea .panel.panel-inverse>.panel-heading{background:#57160e;color:#fff} -->
+<!-- Nav -->
+<!-- linea: .sidebar .nav.nav-profile{padding:5px 0;background-color:red -->
+<!--Despebable-->
+<!-- linea: .sidebar .sidebar-minify-btn{margin:10px 0;float:right;padding:5px 20px 5px 10px!important;background:blue;color:#fff;-webkit-border-radius:20px 0 0 20px;border-radius:20px 0 0 20px} -->

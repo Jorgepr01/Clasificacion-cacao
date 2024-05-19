@@ -1,5 +1,5 @@
 //modelo :) tm
-const URL = 'https://teachablemachine.withgoogle.com/models/PaU39QpA-/';
+const URL = 'https://teachablemachine.withgoogle.com/models/j3KdXZJDA/';
 let model, webcam, labelContainer, maxPredictions,img,previewImg,stopLoop,imagennn,camara;
 let classMaster = null
 const btncompra = document.getElementById('enviarData');
@@ -144,8 +144,8 @@ async function predict(imgagess) {
 
     var descripcionElemento = document.getElementById("descripcionImagen");
     var descripcionTitle = document.getElementById("descripccion");
-    descripcionElemento.innerHTML = descrition[classMaster];
-    classMax.innerHTML=": "+classMaster;
+    descripcionElemento.innerHTML = descrition[classMaster][1];
+    classMax.innerHTML=": "+descrition[classMaster][0];
     descripcionTitle.appendChild(classMax)
     btncompra.disabled = false; 
 }

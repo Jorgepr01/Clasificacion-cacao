@@ -13,6 +13,9 @@ $usuario = new Usuario();
 // Llamar a la función de loguearse
 $usuario = $usuario->loguearse($email, $pass);
 
+
+
+
 // Verificar si se obtuvo un usuario válido
 if (!empty($usuario)) {
     // Obtiene el estado del usuario desde la base de datos
