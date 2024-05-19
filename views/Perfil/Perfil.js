@@ -29,8 +29,28 @@ $(document).ready(function(){
                         </li>
                         <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
                       </ul>
-                    </div>        
+                    </div>
+                    
+                    <div class="Formulario">
+                    <form id="act_perfil">
+                        <div>
+                          <label for="nombre">Nombre:</label><br>
+                          <input type="text" id="nombre" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
+                        </div>
+                        <div>
+                          <label for="apellido">Apellido:</label><br>
+                          <input type="text" id="apellido" class='input-_update' name="apellido" value="${usuario.apellidos}" required><br>
+                        </div>
+                        <div>
+                          <label for="telefono">Teléfono:</label><br>
+                          <input type="tel" id="telefono" class='input-_update' name="telefono" required><br>
+                        </div>
+                        <br>
+                        <input type="submit" class="btn_act" value="Guardar" id='actualizar-user'>
+                      </form>
+                    </div>
                 </div>
+            
               `
   
             $('#datos_personales').html(template)
@@ -116,6 +136,8 @@ $(document).ready(function(){
 
 
 
+
+  
     //TODO: Modal de cambiar avatar
     var modal_cambiar_avatar = $("#modal-cambiar-avatar");
     $('#datos_personales').on('click', '.btn-avatar', function () {
