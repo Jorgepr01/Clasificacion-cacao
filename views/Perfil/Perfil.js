@@ -37,6 +37,9 @@ $(document).ready(function(){
           
           
   
+
+
+            
       })
     }
     //TODO: BOTON DEL PANEL ACTUALIZAR
@@ -106,8 +109,6 @@ $(document).ready(function(){
       });
 
     
-
-
 
 
 

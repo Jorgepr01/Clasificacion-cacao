@@ -92,14 +92,14 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-#actualizar-user {
+.actualizar-user {
   background-color: #57170edb;
   color: white;
   border: none;
   transition-duration: 0.3s;
   cursor: pointer; 
 }
-#actualizar-user:hover {
+.actualizar-user:hover {
   background-color: #57160e;
 }
 .content-wrapper {

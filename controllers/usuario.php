@@ -48,7 +48,7 @@ if ($_POST["funcion"] == "tipos_usuario") {
     echo $jsonstring;
 }
 
-// //TODO: tipos de usuario
+//TODO: tipos de usuario
 if($_POST["funcion"] == "act_perfil"){
     $json = array();
     $nuevosDatos = {
