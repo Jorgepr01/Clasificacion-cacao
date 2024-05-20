@@ -39,19 +39,19 @@ $(document).ready(function () {
               <label for="nombre-usu">
                 <span><i class="fas fa-user"></i> NOMBRES</span>
               </label>
-              <input type="text" id="nombres" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
+              <input type="text" id="nombres" name="nombre" class='input-_update' value="${usuario.nombres}" required><br>
             </div>
             <div>
               <label for="nombre-apellido">
                 <span><i class="fas fa-user"></i> APELLIDO</span>
               </label>
-              <input type="text" id="apellidos" class='input-_update' name="apellido" placeholder="${usuario.apellidos}" required><br>
+              <input type="text" id="apellidos" class='input-_update' name="apellido" value="${usuario.apellidos}" required><br>
             </div>
             <div>
               <label for="telefono">
                 <span><i class="fas fa-phone"></i> TELÉFONO</span>
               </label>
-              <input type="number" id="telefono" class='input-_update' name="telefono" placeholder="${usuario.telefono}" required><br>
+              <input type="number" id="telefonos" class='input-_update' name="telefono" value="${usuario.telefono}" required><br>
             </div>
             <br>
             <button type="submit" class="inline-button-editar">Guardar</button>
@@ -67,7 +67,8 @@ $(document).ready(function () {
         // Aquí puedes agregar el código para enviar los datos del formulario mediante AJAX
         const nombres = $('#nombres').val();
         const apellidos = $('#apellidos').val();
-        const telefono = $('#telefono').val();
+        const telefono = $('#telefonos').val();
+        
         let funcion = "act_perfil";
         $.post('../../controllers/usuario.php', {
           funcion,
