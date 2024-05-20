@@ -3,7 +3,7 @@ session_name("agrocacao");
 //inciar sesiones 
 session_start();
 //para destruir session
-if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
+if ($_SESSION['us_tipo'] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
