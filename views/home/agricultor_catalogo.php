@@ -56,7 +56,7 @@ if ($_SESSION['us_tipo'] == 2) {
                     </div>
                 </div>
                 <div class="panel-body">
-                    <h1>Agricultor</h1>
+                    <h1>AGRICULTOR</h1>
                 </div>
             </div>
         </div>
