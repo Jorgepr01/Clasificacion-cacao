@@ -4,7 +4,7 @@
 	<div data-scrollbar="true" data-height="100%" style="background-color: #57160ef0; ">
 		<!-- begin sidebar user -->
 		<ul class="nav" id="nav-perfil">
-			
+
 		</ul>
 		<!-- end sidebar user -->
 
@@ -14,7 +14,7 @@
 			<li class="nav-header">Menu</li>
 			<!-- ADMINISTRADOR Y ROOT -->
 			<?php
-			// if ($_SESSION['us_tipo'] == 1) {
+			if ($_SESSION['us_tipo'] == 1) {
 			?>
 				<li class="has-sub">
 					<a href="../Home/admin_catalogo.php">
@@ -42,12 +42,30 @@
 
 				</li>
 
-
-				
 			<?php
-			// } else {
-			// 	header('Location: ../../controllers/login.php');
-			// }
+			} else if ($_SESSION['us_tipo'] == 2) {
+			?>
+
+				<li class="has-sub">
+					<a href="../Home/agricultor_catalogo.php">
+						<!-- <b class="caret"></b> -->
+						<i class="fas fa-home fa-fw"></i>
+						<span>Home</span>
+					</a>
+				</li>
+
+				<li class="has-sub">
+					<a href="../deteccion/index.php">
+						<!-- <b class="caret"></b> -->
+						<i class="fas fa-lg fa-fw m-r-10 fa-bullseye"></i>
+						<span>Procesamiento de Imágenes</span>
+					</a>
+
+				</li>
+			<?php
+			} else {
+				header('Location: ../../controllers/login.php');
+			}
 			?>
 
 			<!-- begin sidebar minify button -->
