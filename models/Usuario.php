@@ -140,7 +140,37 @@ class usuario
     return $this->objetos;
   }
 
+  //TODO: buscar avatar del usuario 
+  function buscar_avatar_usuario($id_usuario)
+  {
+    try {
+      $sql = "SELECT avatar FROM usuario WHERE id_us = :id_us";
+      $query = $this->acceso->prepare($sql);
+      $query->execute(array(':id_us' => $id_usuario));
+      $resultado = $query->fetchColumn();
+      if ($resultado !== false) {
+        return $resultado;
+      } else {
+        return "imgavatar.png";
+      }
+    } catch (PDOException $e) {
+      // En lugar de imprimir un mensaje de error, podrías manejarlo de alguna otra manera (log, notificación, etc.)
+      return "Error en la consulta: " . $e->getMessage();
+    }
+  }
 
+  function cambiar_avatar($id_usuario, $nombre)
+  {
+    $sql = "SELECT avatar FROM usuario where id_us=:id";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(':id' => $id_usuario));
+    $this->objetos = $query->fetchall();
+
+    $sql = "UPDATE usuario SET avatar=:nombre where id_us=:id";
+    $query = $this->acceso->prepare($sql);
+    $query->execute(array(':id' => $id_usuario, ':nombre' => $nombre));
+    return $this->objetos;
+  }
 
 
   //TODO: datos personales
@@ -151,17 +181,13 @@ class usuario
             WHERE id_us = :id";
     $query = $this->acceso->prepare($sql);
     $query->execute(array(
-      ':nombre' => $nuevos_datos['nombre'],
-      ':apellido' => $nuevos_datos['apellido'],
+      ':nombre' => $nuevos_datos['nombres'],
+      ':apellido' => $nuevos_datos['apellidos'],
       ':telefono' => $nuevos_datos['telefono'],
       ':id' => $id
     ));
-<<<<<<< HEAD
+    return "edit";
   }
-=======
-    return true;
-}
->>>>>>> 0df890e61317ed27438bd52f4184fda44cd5b784
 
 
 

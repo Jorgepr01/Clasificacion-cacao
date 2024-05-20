@@ -34,6 +34,46 @@ if ($_POST['funcion'] == 'dato_usuario') {
     echo $jsonstring;
 }
 
+//TODO: cambiar avatar
+if($_POST['funcion'] == 'cambiar_avatar'){
+    if(($_FILES['avatar']['type'] == 'image/jpeg') || $_FILES['avatar']['type'] == "image/jpg" || ($_FILES['avatar']['type'] == 'image/png') || ($_FILES['avatar']['type'] == 'image/gif')) {
+        // generar un nombre de archivo único 
+        $nombre = uniqid() . '-' . $_FILES['avatar']['name'];
+
+       // ruta donde se va guardar los archivo
+       $ruta='../uploads/avatar/'.$nombre;
+        
+       // utiliza para mover un archivo cargado (subido) desde una ubicación temporal a una ubicación permanente en el servidor
+       move_uploaded_file($_FILES['avatar']['tmp_name'], $ruta);
+       $usuario->cambiar_avatar($id_usuario, $nombre);
+       
+        foreach ($usuario->objetos as $objeto) {
+            if($objeto->avatar != "imgavatar.png"){
+                if(file_exists('../uploads/avatar/'.$objeto->avatar)){
+                // se utiliza para eliminar un archivo del sistema de archivos del servido
+                unlink('../uploads/avatar/'.$objeto->avatar);
+                }
+            }
+        }
+       
+      $json= array();
+      $json[]=array(
+      'ruta'=>$ruta,
+      'alert'=>'edit'
+      );
+      $jsonstring = json_encode($json[0]);
+      echo $jsonstring;
+    
+    }else{
+        $json= array();
+        $json[]=array(
+        'alert'=>'noedit'
+        );
+         $jsonstring = json_encode($json[0]);
+        echo $jsonstring;
+     }
+}
+
 //TODO: tipos de usuario
 if ($_POST["funcion"] == "tipos_usuario") {
     $json = array();
@@ -52,41 +92,16 @@ if ($_POST["funcion"] == "tipos_usuario") {
 //TODO: tipos de usuario
 if($_POST["funcion"] == "act_perfil"){
     $json = array();
-    $fecha_actual = new DateTime();
-    $usuario->dato_usuario($id_usuario);
-    foreach ($usuario->objetos as $objeto) {
-        $nacimiento = new DateTime($objeto->edad_us);
-        $edad = $nacimiento->diff($fecha_actual);
-        $edad_years = $edad->y;
-        $json[] = array(
-            'id_us' => $objeto->id_us,
-            // 'nombres' => $objeto->nombre_us,
-            // 'apellidos' => $objeto->apellido_us,
-            'edad' => $edad_years,
-            'ci' => $objeto->ci_us,
-            'correo' => $objeto->email_us,
-            'nombre_tipo' => $objeto->nombre_tipo_us,
-            'tipo_us_id' => $objeto->tipo_us_id,
-            'nombre_estado_usuario' => $objeto->nombre_estado_us,
-            'avatar' => $objeto->avatar,
-            'nombres' => $_POST["nombre_usuario"],
-            'apellidos' => $_POST["apellido_usuario"],
-            'telefono' => $_POST["telefono"]
-        );
-    }
-
-
     $nuevosDatos = array(
-        'nombre' => $_POST["nombre_usuario"],
-        'apellido' => $_POST["apellido_usuario"],
+        'nombres' => $_POST["nombres"],
+        'apellidos' => $_POST["apellidos"],
         'telefono' => $_POST["telefono"]
     );
 
-    
-    $usuario->actualizarDatosUser($id_usuario,$nuevosDatos);
+    $resultado = $usuario->actualizarDatosUser($id_usuario, $nuevosDatos);
 
-    $jsonstring = json_encode($json);
-    echo $jsonstring;
+    echo $resultado;
+    
 }
 
 //TODO: cambiar contraseña
@@ -96,7 +111,9 @@ if($_POST['funcion']=='cambiar_contra'){
    //  $newpass=$_POST['newpass'];
     $usuario->cambiar_contra($oldpass,$newpass,$id_usuario);
        
-   }
+}
+
+
 
 //TODO: buscar usuarios
 if ($_POST['funcion'] == 'buscar_usuarios') {
@@ -120,6 +137,14 @@ if ($_POST['funcion'] == 'buscar_usuarios') {
     $jsonstring = json_encode($json);
     echo $jsonstring;
 }
+
+//TODO: buscar avatar del usuario
+if($_POST['funcion'] == 'buscar_avatar_usuario'){
+    // $json = array();
+    $avatar = $usuario->buscar_avatar_usuario($id_usuario);
+    echo $avatar;
+}
+
 
 
 //TODO: insertar usuario

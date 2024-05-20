@@ -1,104 +1,97 @@
-<<<<<<< HEAD
 $(document).ready(function () {
   var funcion = "";
   var template = '';
   dato_usuario();
 
+   // Función para obtener y mostrar los datos del usuario
   function dato_usuario() {
-    funcion = 'dato_usuario';
+    const funcion = 'dato_usuario';
     $.post('../../controllers/usuario.php', {
       funcion
-    }, (response) => {
-      template = '';
+      }, (response) => {
+      let template = '';
       const datos = JSON.parse(response);
       const usuario = datos[0];
       template += `
-=======
-$(document).ready(function(){
-    var funcion = "";
-    var template =  '';
-    dato_usuario();
-  
-    function dato_usuario(){
-      funcion = 'dato_usuario';
-      $.post('../../controllers/usuario.php', {funcion }, (response) => {
-        console.log(response);
-          template='';
-          const datos = JSON.parse(response);
-            const usuario = datos[0];
-            template +=`
->>>>>>> 0df890e61317ed27438bd52f4184fda44cd5b784
-            <h1 class="titulo">DATOS PERSONALES</h1>
-            <div class="display-perfil">
-                    <div class="personal-info">
-                      <h2>DATOS</h2>
-                    
-                      <div class="image">
-                        <img src="../../uploads/avatar/${usuario.avatar}">
-                      </div>
-                      <ul>
-                        <li><b style="color:#0b7300">NOMBRES:</b><a id="nombre"></a> ${usuario.nombres}</li>
-                        <li><b style="color:#0b7300">APELLIDOS:</b><a id="apelllido"></a> ${usuario.apellidos}</li>
-                        <li><b style="color:#0b7300">EDAD:</b><a id="edad"></a> ${usuario.edad}</li>
-                        <li><b style="color:#0b7300">C.I: </b><a id="ci"></a>${usuario.ci}</li>
-                        <li>
-                          <b style="color:#0b7300">TIPO DE USUARIO:</b>
-                          <span id="us_tipo">${usuario.nombre_tipo}</span>
-                        </li>
-                        <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
-                      </ul>
-                    </div>
-                    
-                    <div class="Formulario">
-                    <form id="act_perfil">
-                        <div>
-<<<<<<< HEAD
-                          <label for="nombre-usu">
-                            <span><i class="fas fa-user"></i> NOMBRES</span>
-                          </label>
-                          <input type="text" id="nombre" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
-                        </div>
-                        <div>
-                          <label for="nombre-apellido">
-                            <span><i class="fas fa-user"></i> APELLIDO:</span>
-                          </label>
-                          <input type="text" id="apellido" class='input-_update' name="apellido" placeholder="${usuario.apellidos}" required><br>
-                        </div>
-                        <div>
-                          <label for="telefono">
-                            <span><i class="fas fa-phone"></i> TELEFONO</span>
-                          </label>
-                          <input type="tel" id="telefono" class='input-_update' name="telefono" placeholder="${usuario.telefono}" required><br>
-                        </div>
-                        <br>
-                        <button type="submit" class="inline-button-editar">Guardar </button>                     </form>
-=======
-                          <label for="nombre-update">Nombre:</label><br>
-                          <input type="text" id="nombre-update" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
-                        </div>
-                        <div>
-                          <label for="apellido-update">Apellido:</label><br>
-                          <input type="text" id="apellido-update" class='input-_update' name="apellido" placeholder="${usuario.apellidos}" required><br>
-                        </div>
-                        <div>
-                          <label for="telefono-update">Teléfono:</label><br>
-                          <input type="tel" id="telefono-update" class='input-_update' name="telefono" placeholder="${usuario.telefono}" required><br>
-                        </div>
-                        <br>
-                        <input type="submit" class="btn_act actualizar-user" value="Guardar">
-                      </form>
->>>>>>> 0df890e61317ed27438bd52f4184fda44cd5b784
-                    </div>
-                </div>
-            
-              `
-<<<<<<< HEAD
+      <h1 class="titulo">DATOS PERSONALES</h1>
+      <div class="display-perfil">
+        <div class="personal-info">
+          <h2>DATOS</h2>
+          <div class="image">
+            <img src="../../uploads/avatar/${usuario.avatar}">
+          </div>
+          <ul>
+            <li><b style="color:#0b7300">NOMBRES:</b> <a id="nombre"></a> ${usuario.nombres}</li>
+            <li><b style="color:#0b7300">APELLIDOS:</b> <a id="apellido"></a> ${usuario.apellidos}</li>
+            <li><b style="color:#0b7300">EDAD:</b> <a id="edad"></a> ${usuario.edad}</li>
+            <li><b style="color:#0b7300">C.I: </b> <a id="ci"></a>${usuario.ci}</li>
+            <li><b style="color:#0b7300">TELÉFONO: </b> <a id="telefono"></a>${usuario.telefono}</li>
+            <li>
+              <b style="color:#0b7300">TIPO DE USUARIO:</b>
+              <span id="us_tipo">${usuario.nombre_tipo}</span>
+            </li>
+            <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
+          </ul>
+        </div>
+        <div class="Formulario">
+          <form id="act_perfil">
+            <div>
+              <label for="nombre-usu">
+                <span><i class="fas fa-user"></i> NOMBRES</span>
+              </label>
+              <input type="text" id="nombres" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
+            </div>
+            <div>
+              <label for="nombre-apellido">
+                <span><i class="fas fa-user"></i> APELLIDO</span>
+              </label>
+              <input type="text" id="apellidos" class='input-_update' name="apellido" placeholder="${usuario.apellidos}" required><br>
+            </div>
+            <div>
+              <label for="telefono">
+                <span><i class="fas fa-phone"></i> TELÉFONO</span>
+              </label>
+              <input type="number" id="telefono" class='input-_update' name="telefono" placeholder="${usuario.telefono}" required><br>
+            </div>
+            <br>
+            <button type="submit" class="inline-button-editar">Guardar</button>
+          </form>
+        </div>
+      </div>
+      `;
+      $('#datos_personales').html(template);
 
-      $('#datos_personales').html(template)
-    })
+      // Añadir el evento de submit al formulario después de cargar los datos
+      $("#act_perfil").on('submit', function (e) {
+        e.preventDefault(); // Previene el comportamiento por defecto del submit
+        // Aquí puedes agregar el código para enviar los datos del formulario mediante AJAX
+        const nombres = $('#nombres').val();
+        const apellidos = $('#apellidos').val();
+        const telefono = $('#telefono').val();
+        let funcion = "act_perfil";
+        $.post('../../controllers/usuario.php', {
+          funcion,
+          nombres,
+          apellidos,
+          telefono
+        }, (response) => {
+          console.log(response);
+          if(response.trim() == "edit"){
+            let mensaje = "!Los datos del Usuario Fueron editado Correctamente¡"
+            alertaCorrecto(mensaje)
+          }
+          dato_usuario();
+          
+        });
+      });
+
+
+    });
   }
 
   
+
+
   //TODO: BOTON DEL PANEL ACTUALIZAR
   $('#reloadButton').click(function () {
     dato_usuario();
@@ -108,112 +101,11 @@ $(document).ready(function(){
   //TODO: Modal de cambiar avatar
   var modal_cambiar_avatar = $("#modal-cambiar-avatar");
   $('#datos_personales').on('click', '.btn-avatar', function () {
-=======
-  
-            $('#datos_personales').html(template)
-          
-          
-  
-
-
-            
-      })
-    }
-
-    //TODO: BOTON DEL PANEL ACTUALIZAR
-    $('#reloadButton').click(function() {
-        dato_usuario();
-    });
-
-
-    
-    // //TODO: Modal de cambiar avatar
-    // var act_perfil = $("#modal-cambiar-avatar");
-    $(document).on('submit', '#act_perfil', function(e) {
-      e.preventDefault();
-      
-      let nombre_usuario = $('#nombre-update').val();
-      let apellido_usuario = $('#apellido-update').val();
-      let telefono = $('#telefono-update').val();
-      let funcion = 'act_perfil';
-  
-      let data = {
-          funcion: funcion,
-          nombre_usuario: nombre_usuario,
-          apellido_usuario: apellido_usuario,
-          telefono: telefono
-      };
-  
-      console.log(data);
-  
-      $.post('../../controllers/usuario.php', data, function(response) {
-        console.log(response);
-        const datos = JSON.parse(response);
-        const usuario = datos[0];
-          let template = '';
-          template += `
-              <h1 class="titulo">DATOS PERSONALES</h1>
-              <div class="display-perfil">
-                  <div class="personal-info">
-                      <h2>DATOS</h2>
-                      <div class="image">
-                          <img src="../../uploads/avatar/${usuario.avatar}">
-                      </div>
-                      <ul>
-                          <li><b style="color:#0b7300">NOMBRES:</b><a id="nombre"></a> ${usuario.nombres}</li>
-                          <li><b style="color:#0b7300">APELLIDOS:</b><a id="apelllido"></a> ${usuario.apellidos}</li>
-                          <li><b style="color:#0b7300">EDAD:</b><a id="edad"></a> ${usuario.edad}</li>
-                          <li><b style="color:#0b7300">C.I: </b><a id="ci"></a>${usuario.ci}</li>
-                          <li>
-                              <b style="color:#0b7300">TIPO DE USUARIO:</b>
-                              <span id="us_tipo">${usuario.nombre_tipo}</span>
-                          </li>
-                          <li><button class="inline-button btn-avatar">CAMBIAR AVATAR</button></li>
-                      </ul>
-                  </div>
-                  
-                  <div class="Formulario">
-                      <form id="act_perfil">
-                          <div>
-                              <label for="nombre">Nombre:</label><br>
-                              <input type="text" id="nombre-update" name="nombre" class='input-_update' placeholder="${usuario.nombres}" required><br>
-                          </div>
-                          <div>
-                              <label for="apellido">Apellido:</label><br>
-                              <input type="text" id="apellido-update" class='input-_update' name="apellido" placeholder="${usuario.apellidos}" required><br>
-                          </div>
-                          <div>
-                              <label for="telefono">Teléfono:</label><br>
-                              <input type="tel" id="telefono-update" class='input-_update' name="telefono" placeholder="${usuario.telefono}" required><br>
-                          </div>
-                          <br>
-                          <input type="submit" class="btn_act actualizar-user" value="Guardar" >
-                      </form>
-                      ${response}
-                  </div>
-              </div>
-          `;
-  
-          $('#datos_personales').html(template);
-      });
-  
-      modal_cambiar_avatar.css("display", "block");
-  });
-  
-    
-
-
-
-
-    //TODO: Modal de cambiar avatar
-    var modal_cambiar_avatar = $("#modal-cambiar-avatar");
-    $('#datos_personales').on('click', '.btn-avatar', function () {
->>>>>>> 0df890e61317ed27438bd52f4184fda44cd5b784
-    //   Tu código para mostrar el modal aquí
     funcion = 'buscar_avatar_usuario';
     $.post('../../controllers/usuario.php', {
       funcion
     }, (response) => {
+      console.log(response);
       template = '';
       template += `
           <img src="../../uploads/avatar/${response}">
@@ -225,48 +117,40 @@ $(document).ready(function(){
     modal_cambiar_avatar.css("display", "block");
   });
 
+
   //TODO: SUBIR AVATAR
   $('#form-avatar').submit(e => {
+    // e.preventDefault();
     let formData = new FormData($('#form-avatar')[0]);
     formData.append('funcion', 'cambiar_avatar');
     // Verificar si se seleccionó un archivo
     $.ajax({
-      url: '../../controllers/usuario.php',
-      type: 'POST',
-      data: formData,
-      processData: false, // Evita que jQuery procese los datos
-      contentType: false, // Evita que jQuery configure el tipo de contenido
-      cache: false, // Evita el almacenamiento en caché de la solicitud
+        url: '../../controllers/usuario.php',
+        type: 'POST',
+        data: formData,
+        processData: false, // Evita que jQuery procese los datos
+        contentType: false, // Evita que jQuery configure el tipo de contenido
+        cache: false, // Evita el almacenamiento en caché de la solicitud
     }).done(function (response) {
-      const json = JSON.parse(response);
-      if (json.alert == 'edit') {
-        $('#edit').hide('slow');
-        $('#edit').show(1000);
-        $('#edit').hide(2000);
-        $('#form-avatar').trigger('reset');
-        dato_usuario();
-      } else {
-        $('#noedit').hide('slow');
-        $('#noedit').show(1000);
-        $('#noedit').hide(2000);
-        $('#form-photo').trigger('reset');
-        e.preventDefault();
-      }
-
+        const json = JSON.parse(response);
+        if (json.alert == 'edit') {
+            $('#edit').hide('slow');
+            $('#edit').show(1000);
+            $('#edit').hide(2000);
+            $('#form-avatar').trigger('reset');
+            dato_usuario();
+        } else {
+            $('#noedit').hide('slow');
+            $('#noedit').show(1000);
+            $('#noedit').hide(2000);
+            $('#form-photo').trigger('reset');
+            
+        }
+        
     });
-
+    
 
   })
-
-
-
-    //TODO: editar datos del usuario
-   // Asignar el evento submit después de inyectar el formulario
-   $("#act_perfil").on('submit', function(e) {
-    e.preventDefault(); // Previene el comportamiento por defecto del submit
-    console.log("entro")
-  })
-
 
   // mostrar img
   var input_avatar = $('#avatar');
@@ -323,4 +207,19 @@ $(document).ready(function(){
       }
     }
   });
+
+
+  // alert 
+  function alertaCorrecto(mensaje) {
+    swal({
+        title: 'Éxito',
+        text: mensaje,
+        icon: 'success',
+        button: {
+            text: 'Entendido',
+            className: 'btn btn-primary'
+        }
+    });
+  }
+
 });
