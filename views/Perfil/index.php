@@ -33,8 +33,8 @@ if ($_SESSION['us_tipo'] == 1 || $_SESSION['us_tipo'] == 2) {
 
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb float-xl-right">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="./index.php">Institucion</a></li>
+				<li class="breadcrumb-item"><a href="../../controllers/login.php">Home</a></li>
+				<li class="breadcrumb-item"><a href="./index.php">Perfil</a></li>
 			</ol>
 			<!-- end breadcrumb -->
 
