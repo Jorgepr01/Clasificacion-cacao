@@ -72,7 +72,7 @@ if (!empty($usuario)) {
 // Función de redirección
 function redirect($location)
 {
-    header("Location: ../views/Home/$location");
+    header("Location: ../views/home/$location");
     exit();
 }
 

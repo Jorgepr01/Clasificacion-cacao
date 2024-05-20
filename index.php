@@ -1,24 +1,26 @@
 <?php
-    session_name("agrocacao");
-    session_start();
-    if(isset($_SESSION["us_tipo"])){
-        switch ($_SESSION["us_tipo"]) {
-            case 1:
-                redirect('admin_catalogo.php');
-                break;
-            case 2:
-                redirect('agricultor_catalogo.php');
-                break;
-        }
+session_name("agrocacao");
+session_start();
+if (isset($_SESSION["us_tipo"])) {
+    switch ($_SESSION["us_tipo"]) {
+        case 1:
+            redirect('admin_catalogo.php');
+            break;
+        case 2:
+            redirect('agricultor_catalogo.php');
+            break;
     }
-    // Función de redirección
-    function redirect($location) {
-        header("Location: views/Home/$location");
-        exit();
-    }
+}
+// Función de redirección
+function redirect($location)
+{
+    header("Location: views/home/$location");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +30,9 @@
     <link rel="icon" type="image/x-icon" href="assets/img/logo-header.png">
     <title>Agrocacao</title>
 </head>
+
 <body>
-<div class="logo">
+    <div class="logo">
         <h1>Acceder a tu cuenta</h1>
         <!-- include  cuantas veces seas -->
         <form action="controllers/login.php" method="post">
@@ -42,13 +45,13 @@
 
             <!-- boton -->
             <input type="submit" value="INICIO" name="btningresar">
-            
+
             <!-- <a href="">¿Has Olvidado tu Contraseña?</a> -->
-            
+
         </form>
 
-</div>
- 
-</body>
-</html>
+    </div>
 
+</body>
+
+</html>
