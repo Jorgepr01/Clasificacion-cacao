@@ -14,7 +14,7 @@ if (isset($_SESSION["us_tipo"])) {
 // Función de redirección
 function redirect($location)
 {
-    header("Location: views/home/$location");
+    header("Location: views/Home/$location");
     exit();
 }
 ?>
