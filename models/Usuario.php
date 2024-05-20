@@ -14,27 +14,34 @@ class usuario
   // TODO: inicio de session
   function loguearse($email, $pass)
   {
-    $sql = "SELECT * FROM usuario
+    try {
+      $sql = "SELECT * FROM usuario
           INNER JOIN tipo_usuario on usuario.tipo_us_id = tipo_usuario.id_tipo_us
           INNER JOIN estado_usuario on usuario.estado_us_id = estado_usuario.id_estado_us
           WHERE email_us =:email";
-    $query = $this->acceso->prepare($sql);
-    $query->execute(array(':email' => $email));
-    $usuario = $query->fetch(PDO::FETCH_ASSOC); // Establecer FETCH_ASSOC para obtener un array asociativo
+      $query = $this->acceso->prepare($sql);
+      $query->execute(array(':email' => $email));
+      $usuario = $query->fetch(); // Establecer FETCH_ASSOC para obtener un array asociativo
 
-    // Verificar si se encontró un usuario con el correo electrónico dado
-    if ($usuario) {
-      // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
-      if (password_verify($pass, $usuario['contrasena_us'])) {
-        // Si la contraseña coincide, devolver el objeto de usuario
-        return $usuario;
+      // Verificar si se encontró un usuario con el correo electrónico dado
+      if ($usuario) {
+        // Verificar si la contraseña proporcionada coincide con la contraseña almacenada
+        if (password_verify($pass, $usuario->contrasena_us)) {
+          // Si la contraseña coincide, devolver el objeto de usuario
+          return $usuario;
+        } else {
+          // Si la contraseña no coincide, devolver false indicando una contraseña incorrecta
+          return null;
+        }
       } else {
-        // Si la contraseña no coincide, devolver false indicando una contraseña incorrecta
-        return false;
+        // Si no se encontró ningún usuario con el correo electrónico dado, devolver false
+        return null;
       }
-    } else {
-      // Si no se encontró ningún usuario con el correo electrónico dado, devolver false
-      return false;
+    } catch (PDOException $e) {
+      // Manejar cualquier excepción de PDO (por ejemplo, errores de consulta)
+      // Puedes registrar el error o devolver un mensaje de error genérico
+      error_log("Error al intentar iniciar sesión: " . $e->getMessage());
+      return null;
     }
   }
 
