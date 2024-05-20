@@ -17,7 +17,7 @@
 			if ($_SESSION['us_tipo'] == 1) {
 			?>
 				<li class="has-sub">
-					<a href="../Home/admin_catalogo.php">
+					<a href="../home/admin_catalogo.php">
 						<!-- <b class="caret"></b> -->
 						<i class="fas fa-home fa-fw"></i>
 						<span>Home</span>
@@ -47,7 +47,7 @@
 			?>
 
 				<li class="has-sub">
-					<a href="../Home/agricultor_catalogo.php">
+					<a href="../home/agricultor_catalogo.php">
 						<!-- <b class="caret"></b> -->
 						<i class="fas fa-home fa-fw"></i>
 						<span>Home</span>
